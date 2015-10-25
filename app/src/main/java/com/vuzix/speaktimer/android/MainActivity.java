@@ -1,8 +1,8 @@
 package com.vuzix.speaktimer.android;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.WindowManager;
@@ -14,7 +14,7 @@ import java.util.Locale;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Bind({R.id.tv_hour, R.id.tv_min, R.id.tv_sec})
@@ -95,9 +95,14 @@ public class MainActivity extends AppCompatActivity {
                 if (result) {
                     return true;
                 }
+                break;
             }
+            case KeyEvent.KEYCODE_MENU:
+                LicenseDialog.create(this).show();
+                break;
             default:
-                Log.d(TAG, "keycode = " + keyCode);
+                Log.d(TAG, "unknown keycode = " + keyCode);
+                break;
         }
 
         return super.onKeyDown(keyCode, event);

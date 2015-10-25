@@ -4,6 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="time_textsize_normal">112sp</dimen>
-    <dimen name="time_textsize_large">160sp</dimen>
+    <dimen name="time_textsize_large">176sp</dimen>
 
 </resources>
